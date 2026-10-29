@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>To-Do List</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-wrapper">
+    <header class="app-header">
+      <div class="header-titles">
+        <h1>My Tasks</h1>
+        <p class="subtitle" id="current-date">Organize your day</p>
+      </div>
+      <div class="stats-badge" id="stats-badge">
+        <span id="completed-count">0</span>/<span id="total-count">0</span> done
+      </div>
+    </header>
+
+    <main class="todo-card">
+      <!-- Input Section -->
+      <form id="todo-form" class="todo-form" autocomplete="off">
+        <div class="input-wrapper">
+          <input
+            type="text"
+            id="todo-input"
+            class="todo-input"
+            placeholder="Add a new task..."
+            maxlength="200"
+            required
+            aria-label="New task input"
+          />
+        </div>
+        <button type="submit" id="add-btn" class="btn-primary" aria-label="Add task">
+          <svg class="icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+          </svg>
+          <span>Add</span>
+        </button>
+      </form>
+
+      <!-- Filter Controls -->
+      <div class="filter-bar">
+        <div class="filter-tabs" role="tablist" aria-label="Task filters">
+          <button type="button" class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All</button>
+          <button type="button" class="filter-btn" data-filter="active" role="tab" aria-selected="false">Active</button>
+          <button type="button" class="filter-btn" data-filter="completed" role="tab" aria-selected="false">Completed</button>
+        </div>
+      </div>
+
+      <!-- Task List -->
+      <ul id="todo-list" class="todo-list" aria-label="Tasks list">
+        <!-- Injected via JavaScript -->
+      </ul>
+
+      <!-- Empty State -->
+      <div id="empty-state" class="empty-state hidden">
+        <div class="empty-icon-wrapper">
+          <svg class="empty-icon" viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+          </svg>
+        </div>
+        <p class="empty-title" id="empty-title">All tasks done!</p>
+        <p class="empty-desc" id="empty-desc">Take a breather or add something new.</p>
+      </div>
+
+      <!-- Footer / Actions -->
+      <footer class="card-footer">
+        <span id="items-left" class="items-left">0 items left</span>
+        <button type="button" id="clear-completed-btn" class="clear-btn">Clear Completed</button>
+      </footer>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

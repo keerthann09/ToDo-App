@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: simple-todo-app
+    runtime: static
+    buildCommand: ""
+    staticPublishPath: .
